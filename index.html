@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чертёж утопии — Москва авангарда</title>
+  <meta name="description" content="Интерактивный маршрут по Москве авангарда 1920–1930-х: карта, 12 остановок, аудиогид.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css?v=7">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__kicker">Туристический маршрут · Москва</p>
+      <h1 class="hero__title" id="route-title">Чертёж утопии</h1>
+      <p class="hero__subtitle" id="route-subtitle"></p>
+      <p class="hero__intro" id="route-intro"></p>
+      <div class="hero__actions">
+        <a class="btn btn--red" href="#stop-1">Начать маршрут ↓</a>
+        <button class="btn btn--ghost" type="button" id="play-all">▶ Слушать весь маршрут</button>
+      </div>
+      <ol class="toc" id="toc" aria-label="Остановки маршрута"></ol>
+    </div>
+    <div class="hero__shapes" aria-hidden="true">
+      <span class="shape shape--circle"></span>
+      <span class="shape shape--bar"></span>
+      <span class="shape shape--wedge"></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="map-wrap">
+      <div id="map" role="region" aria-label="Карта маршрута"></div>
+      <div class="map-hud">
+        <button type="button" class="hud-btn" id="prev-stop" aria-label="Предыдущая остановка">←</button>
+        <span class="hud-label" id="hud-label">1 / 12</span>
+        <button type="button" class="hud-btn" id="next-stop" aria-label="Следующая остановка">→</button>
+        <button type="button" class="hud-btn" id="fit-route" aria-label="Показать весь маршрут">⤢</button>
+      </div>
+    </div>
+    <div class="stops" id="stops"></div>
+  </main>
+
+  <footer class="footer">
+    <p>Фотографии — Wikimedia Commons, авторы и лицензии указаны под каждым снимком. Картография © участники OpenStreetMap.</p>
+    <p>Аудиогид озвучивается синтезатором речи вашего браузера.</p>
+  </footer>
+
+  <div class="player" id="player" hidden>
+    <button type="button" class="player__btn" id="player-toggle" aria-label="Пауза">❚❚</button>
+    <div class="player__text">
+      <span class="player__now">Аудиогид</span>
+      <span class="player__title" id="player-title"></span>
+    </div>
+    <button type="button" class="player__btn" id="player-stop" aria-label="Остановить">■</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data/points.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
+</body>
+</html>
