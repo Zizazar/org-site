@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Чертёж утопии — Москва авангарда</title>
-  <meta name="description" content="Интерактивный маршрут по Москве авангарда 1920–1930-х: карта, 12 остановок, аудиогид.">
+  <meta name="description" content="Интерактивный маршрут по Москве авангарда 1920–1930-х: карта, 12 остановок.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
   <header class="hero">
@@ -20,7 +20,6 @@
       <p class="hero__intro" id="route-intro"></p>
       <div class="hero__actions">
         <a class="btn btn--red" href="#stop-1">Начать маршрут ↓</a>
-        <button class="btn btn--ghost" type="button" id="play-all">▶ Слушать весь маршрут</button>
       </div>
       <ol class="toc" id="toc" aria-label="Остановки маршрута"></ol>
     </div>
@@ -46,20 +45,10 @@
 
   <footer class="footer">
     <p>Фотографии — Wikimedia Commons, авторы и лицензии указаны под каждым снимком. Картография © участники OpenStreetMap.</p>
-    <p>Аудиогид озвучивается синтезатором речи вашего браузера.</p>
   </footer>
 
-  <div class="player" id="player" hidden>
-    <button type="button" class="player__btn" id="player-toggle" aria-label="Пауза">❚❚</button>
-    <div class="player__text">
-      <span class="player__now">Аудиогид</span>
-      <span class="player__title" id="player-title"></span>
-    </div>
-    <button type="button" class="player__btn" id="player-stop" aria-label="Остановить">■</button>
-  </div>
-
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="data/points.js?v=7"></script>
-  <script src="js/app.js?v=7"></script>
+  <script src="data/points.js?v=8"></script>
+  <script src="js/app.js?v=8"></script>
 </body>
 </html>

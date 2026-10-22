@@ -71,11 +71,6 @@
 
         ${photoBlock(p)}
 
-        <div class="audio" data-index="${i}">
-          <button type="button" class="audio__btn" aria-label="Слушать аудиогид">▶</button>
-          <div class="audio__info"><b>Аудиогид</b><span class="audio__status">Остановка ${n}: ${esc(p.name)}</span></div>
-        </div>
-
         ${p.lead ? `<p class="lead">${esc(p.lead)}</p>` : ""}
 
         ${p.significance ? `<h3 class="block-title">Почему это важно</h3><p class="significance">${esc(p.significance)}</p>` : ""}
@@ -183,117 +178,6 @@
       goTo(Number(a.getAttribute("href").replace("#stop-", "")) - 1);
     })
   );
-
-  /* ---------- Audio guide (Web Speech API) ---------- */
-  const synth = window.speechSynthesis;
-  const audioBoxes = [...document.querySelectorAll(".audio")];
-  const player = $("#player");
-  const playerTitle = $("#player-title");
-  const playerToggle = $("#player-toggle");
-
-  let voice = null;
-  function pickVoice() {
-    const voices = synth ? synth.getVoices() : [];
-    const ru = voices.filter((v) => /^ru/i.test(v.lang));
-    voice = ru.find((v) => /google|milena|microsoft/i.test(v.name)) || ru[0] || null;
-  }
-  if (synth) {
-    pickVoice();
-    synth.addEventListener?.("voiceschanged", pickVoice);
-  }
-
-  function guideText(p, i, withTransition) {
-    const body = p.audio || [p.lead, p.significance, ...(p.facts || [])].filter(Boolean).join(" ");
-    const intro = `Остановка ${i + 1}. ${p.name}.`;
-    return [withTransition && p.transition, intro, body].filter(Boolean).join(" ");
-  }
-
-  // Long utterances get cut off in some browsers, so speak sentence by sentence.
-  function chunks(text) {
-    const parts = text.match(/[^.!?…]+[.!?…»"]*\s*/g) || [text];
-    const out = [];
-    let buf = "";
-    for (const s of parts) {
-      if ((buf + s).length > 220 && buf) { out.push(buf.trim()); buf = ""; }
-      buf += s;
-    }
-    if (buf.trim()) out.push(buf.trim());
-    return out;
-  }
-
-  let queue = [];
-  let session = 0;
-  let playingIndex = -1;
-  let paused = false;
-
-  function markPlaying(i) {
-    audioBoxes.forEach((b, k) => {
-      const on = k === i;
-      b.classList.toggle("is-playing", on);
-      b.querySelector(".audio__btn").textContent = on ? "❚❚" : "▶";
-      b.querySelector(".audio__btn").setAttribute("aria-label", on ? "Остановить аудиогид" : "Слушать аудиогид");
-    });
-  }
-
-  function stopAudio() {
-    session++;
-    queue = [];
-    paused = false;
-    playingIndex = -1;
-    if (synth) synth.cancel();
-    markPlaying(-1);
-    player.hidden = true;
-  }
-
-  function speakNext(id) {
-    if (id !== session) return;
-    const item = queue.shift();
-    if (!item) { stopAudio(); return; }
-    if (item.index !== playingIndex) {
-      playingIndex = item.index;
-      markPlaying(item.index);
-      playerTitle.textContent = `${item.index + 1}. ${points[item.index].name}`;
-      if (item.follow) goTo(item.index);
-    }
-    const u = new SpeechSynthesisUtterance(item.text);
-    u.lang = "ru-RU";
-    if (voice) u.voice = voice;
-    u.rate = 1;
-    u.onend = () => speakNext(id);
-    u.onerror = (e) => { if (e.error !== "interrupted" && e.error !== "canceled") speakNext(id); };
-    synth.speak(u);
-  }
-
-  function play(indices, { follow = false, withTransition = false } = {}) {
-    if (!synth) return;
-    stopAudio();
-    const id = session;
-    queue = indices.flatMap((i) => chunks(guideText(points[i], i, withTransition)).map((text) => ({ text, index: i, follow })));
-    player.hidden = false;
-    playerToggle.textContent = "❚❚";
-    speakNext(id);
-  }
-
-  audioBoxes.forEach((box) => {
-    const i = Number(box.dataset.index);
-    const btn = box.querySelector(".audio__btn");
-    if (!synth) {
-      box.classList.add("is-unsupported");
-      btn.disabled = true;
-      box.querySelector(".audio__status").textContent = "Ваш браузер не поддерживает синтез речи";
-      return;
-    }
-    btn.addEventListener("click", () => (playingIndex === i ? stopAudio() : play([i])));
-  });
-
-  $("#play-all").addEventListener("click", () => play(points.map((_, i) => i), { follow: true, withTransition: true }));
-  $("#player-stop").addEventListener("click", stopAudio);
-  playerToggle.addEventListener("click", () => {
-    if (!synth) return;
-    if (paused) { synth.resume(); paused = false; playerToggle.textContent = "❚❚"; }
-    else { synth.pause(); paused = true; playerToggle.textContent = "▶"; }
-  });
-  window.addEventListener("beforeunload", () => synth && synth.cancel());
 
   /* ---------- Start ---------- */
   const start = Number((location.hash.match(/^#stop-(\d+)$/) || [])[1]) - 1;

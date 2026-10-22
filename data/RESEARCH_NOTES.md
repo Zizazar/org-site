@@ -9,7 +9,7 @@
 - РТРС назвала вероятным началом работ **октябрь 2026 года**, срок — около трёх лет (до 2028–2029 года), стоимость — свыше 700 млн рублей. Точная дата начала в найденных публикациях не названа, подтверждения, что демонтаж уже идёт, на 20.10.2026 не нашлось.
 - Последствия для маршрута: территория вокруг башни и раньше была закрыта (РТРС), башню смотрят с улицы Шухова и Шаболовки. Во время работ вид может быть закрыт лесами, а через несколько лет на месте окажется в значительной мере новодел.
 - **Состав маршрута я не менял.** Предлагаю основной сессии решить: оставить точку как есть (в `facts` уже есть предупреждение для посетителя) или добавить на сайте пометку «объект на реконструкции».
-- Источники: [Meduza, 29.09.2026](https://meduza.io/feature/2026/09/29/sovsem-skoro-znamenituyu-shuhovskuyu-bashnyu-polnostyu-razberut-i-zamenyat-na-novodel), [«Родина», 08.10.2026](https://rodina-history.ru/2026/10/08/shuhovskuiu-bashniu-v-moskve-nachnut-razbirat-originalnye-konstrukcii-zameniat-novymi.html), [Lenta.ru, 08.09.2026](https://lenta.ru/articles/2026/09/08/shuhovskaya/), [Афиша Daily](https://daily.afisha.ru/cities/37200-bashnya-razdora-pochemu-vse-sporyat-o-sudbe-konstrukcii-shuhova-na-shabolovke/).
+- Источники: [«Родина», 08.10.2026](https://rodina-history.ru/2026/10/08/shuhovskuiu-bashniu-v-moskve-nachnut-razbirat-originalnye-konstrukcii-zameniat-novymi.html), [Lenta.ru, 08.09.2026](https://lenta.ru/articles/2026/09/08/shuhovskaya/), [Афиша Daily](https://daily.afisha.ru/cities/37200-bashnya-razdora-pochemu-vse-sporyat-o-sudbe-konstrukcii-shuhova-na-shabolovke/).
 
 ## Как проверялось
 
@@ -17,7 +17,6 @@
 - **Координаты:** по OpenStreetMap (Overpass/Nominatim — контур или центр конкретного здания), сверены с координатами статей Википедии. Расхождение не больше 10–20 м.
 - **Ссылки-источники:** каждая открыта (код 200). Moskvichmag.ru отсюда не открывался (обрыв соединения), поэтому в `sources` его нет.
 - Файл проверен: `node -e "global.window={};require('C:/Users/user/Desktop/org-site/data/points.js');console.log(window.ROUTE.points.length)"` → `12`.
-- Тексты аудиогида: 139–158 слов (примерно 65–80 секунд чтения), без скобок, сокращений и диапазонов цифр.
 
 ## Исправления по сравнению с черновиком
 
@@ -87,7 +86,7 @@
 
 ## Источники по точкам (подробнее, чем в `sources`)
 
-1. Шуховская башня: Википедия; Meduza (29.09.2026); Lenta.ru (20.06.2024: дневник «Железа нет», допросы); «Родина» (08.10.2026); Lenta.ru (08.09.2026); mos.ru/news/item/103930073 (история телецентра).
+1. Шуховская башня: Википедия; Lenta.ru (20.06.2024: дневник «Железа нет», допросы); «Родина» (08.10.2026); Lenta.ru (08.09.2026); mos.ru/news/item/103930073 (история телецентра).
 2. Дом-коммуна: Википедия (по Хан-Магомедову); engineer-history.ru/blog/26; misis.ru/events/1292; mosmuseum.ru/tours/p/kommuna; Википедия «Николаев, Иван Сергеевич».
 3. «Каучук»: Википедия; msk1.ru (22.12.2025); moskvichmag.ru/?p=110559 (находки при реставрации, отсюда не открылся, но цитировался в поиске).
 4. Дом Мельникова: Википедия (очень подробная, по Хан-Магомедову, Кузнецову, Стригалёву); mos.ru/news/item/168525073 (реставрация, 1941 год).
