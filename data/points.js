@@ -171,11 +171,11 @@ window.ROUTE = {
         37.58947
       ],
       "photo": {
-        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Melnikov_House%2C_May_2021.jpg?width=1200",
+        "src": "https://probauhaus.ru/wp-content/uploads/2015/06/Dom-Mel-nikova.-Gorodskaya-legenda_17.jpg",
         "alt": "Белые врезанные друг в друга цилиндры дома Мельникова с шестигранными окнами и надписью на фасаде",
         "author": "Paulkuz",
         "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Melnikov_House%2C_May_2021.jpg"
+        "page": "https://probauhaus.ru/melnikov-house/"
       },
       "transition": "Клубы Мельников строил для коллектива, а параллельно, в 1927–1929 годах, возводил дом для одной семьи — свой. Даже четверть круга, которую мы видели на Плющихе, у него «домашняя»: до переезда Мельниковы больше десяти лет жили в коммуналке на углу Петровки и Страстного бульвара, где одна из комнат была четвертью круга с пятью окнами. После дома-коммуны Николаева это звучит как спор: архитектор отвечает коллективному быту манифестом личности.",
       "travel": {
@@ -379,11 +379,11 @@ window.ROUTE = {
         37.60535
       ],
       "photo": {
-        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Moscow_IzvestiaBuilding_0623_%28cropped%29.jpg?width=1200",
+        "src": "https://i.archi.ru/i/241004.jpg",
         "alt": "Фасад исторического здания «Известий» с сеткой каркаса, круглыми окнами и надписью «Известия ЦИК СССР и ВЦИК»",
         "author": "Ludvig14",
         "license": "CC BY-SA 4.0",
-        "page": "https://commons.wikimedia.org/wiki/File:Moscow_IzvestiaBuilding_0623_%28cropped%29.jpg"
+        "page": "https://archi.ru/projects/russia/3724/zdanie-gazety-izvestiya-moskva"
       },
       "transition": "Планетарий объяснял мир через зрелище, «Известия» — через печатное слово, которое каждое утро расходилось по всей стране. Это вторая половина программы, начатой на Шаболовке: Ленин называл радио «газетой без бумаги и без расстояний», а здесь печатали газету на бумаге. И строили её снова инженеры шуховского поколения — железобетон рассчитывал Артур Лолейт, автор башни Моссельпрома.",
       "travel": {
